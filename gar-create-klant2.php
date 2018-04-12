@@ -38,7 +38,7 @@ $sql->bindParam(":klantplaats", $klantplaats);
 
 $sql->execute();
 echo "De klant is toegevoegd <br/>";
-echo "<a href='gar-menu.php'> terug naar het menu";
+echo "<a href='gar-menu.php'> terug naar het menu </a>";
 ?>
 </body>
 </html>
