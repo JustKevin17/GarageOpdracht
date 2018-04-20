@@ -14,13 +14,11 @@
 </p>
 <?php
 $klantid = NULL;
-$klantnaam = $_POST["klantnaamvak"];
-$klantadres = $_POST["klantadresvak"];
-$klantpostcode = $_POST["klantpostcodevak"];
-$klantplaats = $_POST["klantplaatsvak"];
-
+$klantnaam = $_POST["klantnaam"];
+$klantadres = $_POST["klantadres"];
+$klantpostcode = $_POST["klantpostcode"];
+$klantplaats = $_POST["klantplaats"];
 require_once "gar-connect.php";
-
 $sql = $conn->prepare("INSERT INTO klant VALUES(:klantid, :klantnaam, :klantadres, :klantpostcode, :klantplaats)");
 //$sql->execute([
 //    "klantid" => $klantid,
@@ -29,13 +27,11 @@ $sql = $conn->prepare("INSERT INTO klant VALUES(:klantid, :klantnaam, :klantadre
 //    "klantpostcode" => $klantpostcode,
 //    "klantplaats" => $klantplaats
 //    ]);
-
 $sql->bindParam(":klantid", $klantid);
 $sql->bindParam(":klantnaam", $klantnaam);
 $sql->bindParam(":klantadres", $klantadres);
 $sql->bindParam(":klantpostcode", $klantpostcode);
 $sql->bindParam(":klantplaats", $klantplaats);
-
 $sql->execute();
 echo "De klant is toegevoegd <br/>";
 echo "<a href='gar-menu.php'> terug naar het menu </a>";
